@@ -1,5 +1,6 @@
 :root {
     --cor-primaria: #6f00ff;
+    --cor-primaria-rgba-10: rgba(111, 0, 255, 0.1);
     --cor-primaria-rgba-20: rgba(111, 0, 255, 0.2);
     --cor-primaria-rgba-40: rgba(111, 0, 255, 0.4);
 
