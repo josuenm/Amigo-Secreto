@@ -5,16 +5,14 @@
     <x-head-basico />
     @vite('resources/css/paginas/cadastrar-pessoa.css')
     @vite('resources/css/componentes/input.css')
+    @vite('resources/css/componentes/cabecalho-padrao.css')
 
     <title>Amigo Secreto</title>
 </head>
 
 <body>
-    <header>
-        <div class="safe-area d-flex align-items-center">
-            <button>Voltar</button>
-        </div>
-    </header>
+    <x-cabecalho-padrao />
+
     <main class="safe-area py-4">
         <form action="" class="formulario-pessoa d-flex flex-column gap-1">
             <div>
