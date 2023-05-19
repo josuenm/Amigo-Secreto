@@ -6,11 +6,14 @@
     @vite('resources/css/paginas/inicio.css')
     @vite('resources/css/componentes/cartao-pessoa.css')
     @vite('resources/css/componentes/input.css')
+    @vite('resources/css/componentes/cabecalho-padrao.css')
 
     <title>Amigo Secreto</title>
 </head>
 
 <body>
+    <x-cabecalho-padrao />
+
     <main class="safe-area py-4">
         <section class="d-flex flex-column w-100 w-lg-75">
             <h2 class="h1">Crie pessoas para fazer seu amigo secreto</h2>
