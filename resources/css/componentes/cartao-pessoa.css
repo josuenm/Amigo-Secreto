@@ -1,0 +1,45 @@
+.cartao-pessoa {
+    background-color: var(--cor-slate-800);
+}
+
+.cartao-pessoa_container-nome {
+    background-color: var(--cor-slate-700);
+}
+
+/* COMEÇO: BOTÕES */
+.cartao-pessoa_botao-editar:focus,
+.cartao-pessoa_botao-deletar:focus {
+    outline: none;
+}
+.cartao-pessoa_botao-editar:focus,
+.cartao-pessoa_botao-deletar:focus {
+    transition: 0.4s ease all;
+}
+
+.cartao-pessoa_botao-editar {
+    color: var(--cor-primaria);
+    background-color: var(--cor-primaria-rgba-20);
+}
+.cartao-pessoa_botao-editar:hover {
+    background-color: var(--cor-primaria-rgba-40);
+}
+
+.cartao-pessoa_botao-deletar {
+    color: rgba(255, 64, 76, 1);
+    background-color: rgba(255, 64, 76, 0.2);
+}
+.cartao-pessoa_botao-deletar:hover {
+    background-color: rgba(255, 64, 76, 0.4);
+}
+/* FIM: BOTÕES */
+
+/* COMEÇO: MODAL */
+.cartao-pessoa_modal .modal_background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.25);
+}
+/* FIM: MODAL */
