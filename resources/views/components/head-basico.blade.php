@@ -3,6 +3,7 @@
 
 {{-- COMEÇO: SCRIPTS --}}
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+<script src="js/app.js" defer></script>
 {{-- FIM: SCRIPTS --}}
 
 {{-- COMEÇO: ESTILOS --}}
