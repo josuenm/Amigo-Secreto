@@ -18,4 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::post('/cadastrar-pessoa', [HandlePersonController::class, 'createPerson'])->name('auth.create-person');
 Route::get('/cadastrar-pessoa', [HandlePersonController::class, 'createPersonPage'])->name('auth.create-person.page');
 
+Route::post('/editar-pessoa', [HandlePersonController::class, 'editPerson'])->name('auth.edit-person');
+Route::get('/editar-pessoa', [HandlePersonController::class, 'editPersonPage'])->name('auth.edit-person.page');
+
 Route::get('/', [HomeController::class, 'index'])->name('auth.inicio');
