@@ -1,23 +1,19 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+@extends('layouts.main')
 
-<head>
-    <x-head-basico />
-    @vite('resources/css/paginas/inicio.css')
-    @vite('resources/css/componentes/cartao-pessoa.css')
-    @vite('resources/css/componentes/input.css')
-    @vite('resources/css/componentes/cabecalho-padrao.css')
+@section('title', 'Home')
 
-    <title>Amigo Secreto</title>
-</head>
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('css/pages/home.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/components/input.css') }}">
+@endpush
 
-<body>
-    <x-cabecalho-padrao />
+@section('content')
+    <x-header />
 
     <main class="safe-area py-4">
         <section class="d-flex flex-column w-100 w-lg-75">
             <h2 class="h1">Crie pessoas para fazer seu amigo secreto</h2>
-            <p class="inicio-descricao">
+            <p class="home-description">
                 O Amigo Secreto é uma tradição divertida e popular em muitos grupos, sejam eles familiares, de amigos ou até mesmo no ambiente de trabalho. Essa atividade consiste em sortear aleatoriamente os nomes dos participantes, de forma que cada pessoa seja responsável por presentear o seu "amigo secreto" de maneira anônima.
             </p>
             <a href="{{ url('cadastrar-pessoa') }}" class="normal-btn mt-2 align-self-start">
@@ -36,9 +32,9 @@
             <strong class="h5">Lista de pessoas:</strong>
 
             <div class="py-3 d-flex flex-column gap-2">
-                @if(isset($pessoas) && !empty($pessoas))
-                    @foreach($pessoas as $pessoa)
-                        <x-cartao-pessoa nome="{{ $pessoa['nome'] }}" email="{{ $pessoa['email'] }}" />
+                @if(isset($people) && !empty($people))
+                    @foreach($people as $person)
+                        <x-person-card name="{{ $person['name'] }}" email="{{ $person['email'] }}" />
                     @endforeach
                 @else
                     <p class="text-center">Nenhum usuário, crie um usuário</p>
@@ -46,6 +42,4 @@
             </div>
         </section>
     </main>
-</body>
-
-</html>
+@endsection

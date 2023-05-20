@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\Auth\CadastrarPessoaController;
-use App\Http\Controllers\Auth\InicioController;
+use App\Http\Controllers\Auth\HandlePersonController;
+use App\Http\Controllers\Auth\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,5 +15,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [InicioController::class, 'index'])->name('auth.inicio');
-Route::get('/cadastrar-pessoa', [CadastrarPessoaController::class, 'index'])->name('auth.cadastrar-pessoa');
+Route::get('/', [HomeController::class, 'index'])->name('auth.inicio');
+Route::get('/cadastrar-pessoa', [HandlePersonController::class, 'createPersonPage'])->name('auth.create.person');

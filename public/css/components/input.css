@@ -1,12 +1,12 @@
 .normal-input {
     border-radius: 0.25rem;
     padding: 0.5rem 1.25rem;
-    background-color: var(--cor-slate-800);
-    border: 2px solid var(--cor-slate-700);
+    background-color: var(--slate-color-800);
+    border: 2px solid var(--slate-color-700);
     outline: none;
     transition: 0.4s ease all;
     color: #fff;
 }
 .normal-input:focus {
-    border: 2px solid var(--cor-primaria);
+    border: 2px solid var(--primary-color);
 }

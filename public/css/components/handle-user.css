@@ -1,9 +1,9 @@
-.formulario-pessoa {
+.person-form {
     max-width: 350px;
     width: 100%;
     margin: 0 auto;
 }
 
-.cadastro-pessoa_descricao {
+.handle-person_description {
     color: rgb(200, 200, 200);
 }

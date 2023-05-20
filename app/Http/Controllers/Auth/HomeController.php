@@ -5,29 +5,29 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class InicioController extends Controller
+class HomeController extends Controller
 {
     public function index()
     {
-        $pessoas = [
+        $people = [
             [
-                'nome' => 'João',
+                'name' => 'João',
                 'email' => 'joao@gmail.com'
             ],
             [
-                'nome' => 'Josué',
+                'name' => 'Josué',
                 'email' => 'josue@gmail.com'
             ],
             [
-                'nome' => 'Julian',
+                'name' => 'Julian',
                 'email' => 'julian@gmail.com'
             ],
             [
-                'nome' => 'Gui',
+                'name' => 'Gui',
                 'email' => 'guilherme@gmail.com'
             ],
         ];
 
-        return view('auth.inicio', compact('pessoas'));
+        return view('auth.home', compact('people'));
     }
 }

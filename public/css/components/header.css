@@ -1,0 +1,33 @@
+.header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.7rem 0;
+    transition: 0.4s ease all;
+}
+.header.active {
+    background-color: var(--primary-color-rgba-10);
+    backdrop-filter: blur(8px);
+}
+
+.header_back-button {
+    color: var(--primary-color);
+    font-weight: bold;
+    padding: 0.25rem 1rem;
+    border-radius: 3rem;
+    transition: 0.4s ease all;
+    background-color: var(--primary-color-rgba-20);
+}
+.header_back-button:focus {
+    outline: none;
+}
+
+@media (min-width: 992px) {
+    .header_back-button {
+        background-color: transparent;
+    }
+    .header_back-button:hover {
+        background-color: var(--primary-color-rgba-20);
+    }
+}

@@ -6,14 +6,18 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class HeadBasico extends Component
+class PersonCard extends Component
 {
+    public string $name;
+    public string $email;
+
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public function __construct(string $name, string $email)
     {
-        //
+        $this->name = $name;
+        $this->email = $email;
     }
 
     /**
@@ -21,6 +25,6 @@ class HeadBasico extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.head-basico');
+        return view('components.person-card');
     }
 }
