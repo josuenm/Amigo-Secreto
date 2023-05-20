@@ -1,0 +1,9 @@
+.handle-person_form {
+    max-width: 350px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.handle-person_description {
+    color: rgb(200, 200, 200);
+}
