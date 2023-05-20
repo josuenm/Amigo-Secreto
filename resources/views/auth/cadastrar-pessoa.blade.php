@@ -31,7 +31,7 @@
                 <input type="text" id="email" class="normal-input" placeholder="Digite seu email...">
             </div>
 
-            <button type="submit" class="normal-btn mt-3">Criar usuário</button>
+            <button type="submit" class="normal-btn mt-3">Salvar</button>
         </form>
     </main>
 </body>
