@@ -5,6 +5,7 @@
     width: 100%;
     padding: 0.7rem 0;
     transition: 0.4s ease all;
+    border-bottom: 1px solid var(--primary-color-rgba-10);
 }
 .header.active {
     background-color: var(--primary-color-rgba-10);

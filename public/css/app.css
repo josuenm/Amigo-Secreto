@@ -16,8 +16,8 @@
 
 /* COMEÇO: ESTILOS PADRÃO */
 body {
-    background-color: rgb(15 23 42);
-    color: #fff;
+    background-color: rgb(15 23 42) !important;
+    color: #fff !important;
 }
 
 a:hover {
