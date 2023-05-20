@@ -16,13 +16,12 @@
 
 <script>
     function back() {
-        let url = `${window.location.host}/`;
+        let url = '/';
 
-        if(sessionStorage.getItem("pagina-anterior")) {
-            if(sessionStorage.getItem("pagina-anterior") === window.location.href) {
-                window.location.replace(url)
-                return
-            }
+        if(
+            sessionStorage.getItem("pagina-anterior") &&
+            sessionStorage.getItem("pagina-anterior") !== window.location.href
+        ) {
             url = sessionStorage.getItem("pagina-anterior")
         }
 
