@@ -1,3 +1,7 @@
+@push('styles')
+    <link rel="stylesheet" href="{{asset('css/components/person-card.css')}}">
+@endpush
+
 <div class="person-card p-4 rounded">
     <div class="rounded person-card_container-name px-3 py-1 mb-4 text-truncate">
         <strong class="h4">{{$name}}</strong>
