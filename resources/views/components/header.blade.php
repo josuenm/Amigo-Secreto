@@ -6,7 +6,7 @@
 <header class="header">
     <div class="safe-area d-flex @if($_SERVER['REQUEST_URI'] !== '/') justify-content-between @else justify-content-center @endif">
         @if($_SERVER['REQUEST_URI'] !== '/')
-            <button class="header_back-button" onclick="voltar()">Voltar</button>
+            <button class="header_back-button" onclick="back()">Voltar</button>
         @endif
         <strong>
             Amigo Secreto
@@ -15,12 +15,18 @@
 </header>
 
 <script>
-    function voltar() {
+    function back() {
+        let url = `${window.location.host}/`;
+
         if(sessionStorage.getItem("pagina-anterior")) {
-            window.location.replace(sessionStorage.getItem("pagina-anterior"))
-           return
+            if(sessionStorage.getItem("pagina-anterior") === window.location.href) {
+                window.location.replace(url)
+                return
+            }
+            url = sessionStorage.getItem("pagina-anterior")
         }
-        window.location.replace(`${window.location.host}/`)
+
+        window.location.replace(url)
     }
 
     window.addEventListener('scroll', () => {
