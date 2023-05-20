@@ -19,11 +19,25 @@
             </div>
             <div class="d-flex flex-column">
                 <label for="nome">Nome:</label>
-                <input type="text" id="nome" class="normal-input" placeholder="Digite seu nome...">
+                <input
+                    @if(isset($name))
+                        value="{{$name}}"
+                    @endif
+                    type="text"
+                    id="nome"
+                    class="normal-input"
+                    placeholder="Digite seu nome...">
             </div>
             <div class="d-flex flex-column">
                 <label for="email">Email:</label>
-                <input type="text" id="email" class="normal-input" placeholder="Digite seu email...">
+                <input
+                    @if(isset($name))
+                        value="{{$email}}"
+                    @endif
+                    type="text"
+                    id="email"
+                    class="normal-input"
+                    placeholder="Digite seu email...">
             </div>
 
             <button type="submit" class="w-100 normal-btn mt-3">Salvar</button>
