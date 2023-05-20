@@ -20,9 +20,22 @@ class HandlePersonController extends Controller
 
     public function editPersonPage()
     {
+        $route = route('auth.edit-person');
+        $title = 'Editar Pessoa';
+        $headline = 'Editar pessoa';
+        $description = 'Edite o usuário para fazer o amigo secreto, coloque obrigatóriamente o nome e email';
+
+        $name = 'Pindamonhangaba';
+        $email = 'pindamonhangaba@gmail.com';
+
+        return view('auth.handle-person', compact('route', 'title', 'headline', 'description', 'name', 'email'));
     }
 
     public function createPerson()
+    {
+    }
+
+    public function editPerson()
     {
     }
 }
