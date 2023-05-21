@@ -4,11 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
-use Illuminate\Validation\ValidationException;
-use Illuminate\Support\Str;
 
 class AccessController extends Controller
 {
@@ -37,21 +34,12 @@ class AccessController extends Controller
             ]);
 
             $credentials = $req->only('email', 'password');
-            if (Auth::attempt($credentials, false)) {
-                $token = Str::random(60);
-                $cookie = cookie('amigosecreto.token', $token, 60 * 24); // 24 hours
-                Session::put('name', $req->name);
-                Session::put('email', $req->email);
-
-                return response()->json(['token' => $token])->withCookie($cookie);
+            if (auth()->attempt($credentials, false)) {
+                return redirect('/');
             }
-
-            return response('Email ou senha incorreto', 500);
-        } catch (ValidationException $e) {
-            $errors = $e->errors();
-            return response(reset($errors)[0], 401);
-        } catch (\Exception $e) {
-            return response("Algo deu errado, tente novamente", 500);
+            return back()->withErrors(['general-error' => 'Algo deu errado, tente novamente']);
+        } catch (QueryException $e) {
+            return back()->withInput()->withErrors(['general-error' => 'Algo deu errado, tente novamente']);
         }
     }
 
@@ -67,7 +55,7 @@ class AccessController extends Controller
                 'email.required' => 'O email é obrigatório',
                 'email.email' => 'O email não é válido',
                 'email.unique' => 'O email já existe',
-                'password.required' => 'A senha é obrigatório',
+                'password.required' => 'A senha é obrigatória',
                 'password.min' => 'A senha deve ter pelo menos 6 caracteres',
             ]);
 
@@ -79,28 +67,18 @@ class AccessController extends Controller
 
             $credentials = $req->only('email', 'password');
 
-            if (Auth::attempt($credentials, false)) {
-                $token = Str::random(60);
-                $cookie = cookie('amigosecreto.token', $token, 60 * 24); // 24 hours
-                Session::put('name', $req->name);
-                Session::put('email', $req->email);
-
-                return response()->json(['token' => $token])->withCookie($cookie);
+            if (auth()->attempt($credentials, false)) {
+                return redirect('/');
             }
-
-            return response('Erro ao autenticar usuário, tente fazer login com seu acesso', 500);
-        } catch (ValidationException $e) {
-            $errors = $e->errors();
-            return response(reset($errors)[0], 401);
-        } catch (\Exception $e) {
-            return response("Algo deu errado, tente novamente", 500);
+            return back()->withErrors(['general-error' => 'Algo deu errado, tente novamente']);
+        } catch (QueryException $e) {
+            return back()->withInput()->withErrors(['general-error' => 'Algo deu errado, tente novamente']);
         }
     }
 
     public function logout()
     {
-        Auth::logout();
-
-        return response('Sucesso', 200);
+        auth()->logout();
+        return redirect('/login');
     }
 }
