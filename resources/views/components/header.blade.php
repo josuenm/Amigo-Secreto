@@ -12,21 +12,26 @@
 ?>
 
 <header class="header">
-    <div class="safe-area d-flex
-            @if(!urlWithNoBackButton())
-                justify-content-between
-            @else
-                justify-content-center
-            @endif
-        ">
-
+    <div class="safe-area d-flex justify-content-between">
         @if(!urlWithNoBackButton())
             <button class="header_back-button" onclick="back()">Voltar</button>
         @endif
 
-        <strong>
+        <strong class="
+            @if(!auth()->check() && urlWithNoBackButton())
+                mx-auto
+            @endif">
             Amigo Secreto
         </strong>
+
+        @if(auth()->check())
+            <form action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button type="submit" class="text-truncate logout-btn">
+                    Sair
+                </button>
+            </form>
+        @endif
     </div>
 </header>
 
