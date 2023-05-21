@@ -24,11 +24,18 @@
     outline: none;
 }
 
+.logout-btn {
+    font-weight: bold;
+    transition: 0.4s ease all;
+}
 @media (min-width: 992px) {
     .header_back-button {
         background-color: transparent;
     }
     .header_back-button:hover {
         background-color: var(--primary-color-rgba-20);
+    }
+    .logout-btn:hover {
+        color: var(--primary-color);
     }
 }

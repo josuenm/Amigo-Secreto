@@ -6,6 +6,9 @@
 
     --slate-color-800: rgb(30 28 57);
     --slate-color-700: rgb(45 43 72);
+    --slate-color-500: rgb(100 116 139);
+
+    --red-color-500: rgb(239 68 68);
 }
 
 * {
@@ -30,9 +33,19 @@ button {
     border: 0;
     cursor: pointer;
 }
+button:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+button:hover:disabled {
+    opacity: 0.5 !important;
+}
 /* FIM: ESTILOS PADRÃO */
 
 /* COMEÇO: ESTILOS DECLARATIVOS */
+.gap-05 {
+    gap: 0.5rem;
+}
 .gap-1 {
     gap: 1rem;
 }
@@ -50,6 +63,11 @@ button {
     width: 100%;
     margin: 0 auto;
     padding: 0 1rem;
+}
+.btn-with-icon {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
 }
 .normal-btn {
     background-color: var(--primary-color);

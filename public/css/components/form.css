@@ -10,3 +10,16 @@
 .normal-input:focus {
     border: 2px solid var(--primary-color);
 }
+.normal-input.error {
+    border: 2px solid var(--red-color-500);
+}
+
+.support-message {
+    font-size: 0.9rem;
+    color: var(--slate-color-500);
+}
+
+.error-message {
+    font-size: 0.9rem;
+    color: var(--red-color-500);
+}
