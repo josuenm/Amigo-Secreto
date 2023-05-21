@@ -17,13 +17,23 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('/cadastrar-pessoa', [HandlePersonController::class, 'createPerson'])->name('auth.create-person');
-Route::get('/cadastrar-pessoa', [HandlePersonController::class, 'createPersonPage'])->name('auth.create-person.page');
+Route::get('/cadastrar-pessoa', [HandlePersonController::class, 'createPersonPage'])
+    ->name('auth.create-person.page')
+    ->middleware('auth');
 
 Route::post('/editar-pessoa', [HandlePersonController::class, 'editPerson'])->name('auth.edit-person');
-Route::get('/editar-pessoa', [HandlePersonController::class, 'editPersonPage'])->name('auth.edit-person.page');
+Route::get('/editar-pessoa', [HandlePersonController::class, 'editPersonPage'])
+    ->name('auth.edit-person.page')
+    ->middleware('auth');
 
+Route::post('/login', [AccessController::class, 'login'])->name('auth.login');
 Route::get('/login', [AccessController::class, 'loginPage'])->name('login.page');
+
+Route::post('/register', [AccessController::class, 'register'])->name('auth.register');
 Route::get('/register', [AccessController::class, 'registerPage'])->name('register.page');
 
+Route::post('/logout', [AccessController::class, 'logout'])->name('logout');
 
-Route::get('/', [HomeController::class, 'index'])->name('auth.inicio');
+Route::get('/', [HomeController::class, 'index'])
+    ->name('auth.inicio')
+    ->middleware('auth');
