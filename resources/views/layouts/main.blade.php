@@ -20,6 +20,9 @@
     <!-- Conteúdo da página -->
     @yield('content')
 
+    {{-- Componentes escondidos. Ex: modais --}}
+    @stack('hidden-components')
+
     <!-- Scripts comuns -->
     @stack('scripts')
 </body>
