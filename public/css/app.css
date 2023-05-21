@@ -20,9 +20,9 @@ body {
     color: #fff !important;
 }
 
-a:hover {
+a {
+    color: unset;
     text-decoration: none !important;
-    color: inherit !important;
 }
 button {
     background-color: transparent;
@@ -59,12 +59,28 @@ button {
     text-align: center;
     transition: 0.4s ease all;
 }
+.nice-btn {
+    color: var(--primary-color);
+    background-color: var(--primary-color-rgba-10);
+    padding: 0.5rem 2rem;
+    border-radius: 0.25rem;
+    text-align: center;
+    transition: 0.4s ease all;
+}
 @media (min-width: 992px) {
     .safe-area {
         padding: 0;
     }
     .normal-btn:hover {
+        color: #fff;
         opacity: 0.8;
+    }
+    .nice-btn {
+        background-color: transparent;
+    }
+    .nice-btn:hover {
+        color: var(--primary-color);
+        background-color: var(--primary-color-rgba-10);
     }
 }
 /* FIM: COMPONENTES GLOBAIS */
