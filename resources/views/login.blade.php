@@ -3,6 +3,7 @@
 @section('title', 'Entrar')
 
 @push('styles')
+    <link rel="stylesheet" href="{{asset('/css/components/form.css')}}">
     <link rel="stylesheet" href="{{asset('/css/pages/login.css')}}">
 @endpush
 

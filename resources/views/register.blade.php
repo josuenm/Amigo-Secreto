@@ -3,6 +3,7 @@
 @section('title', 'Registrar')
 
 @push('styles')
+    <link rel="stylesheet" href="{{asset('/css/components/form.css')}}">
     <link rel="stylesheet" href="{{asset('/css/pages/register.css')}}">
 @endpush
 
@@ -46,3 +47,7 @@
         </form>
     </main>
 @endsection
+
+@push('scripts')
+    <script src="{{asset('js/pages/register.js')}}"></script>
+@endpush
