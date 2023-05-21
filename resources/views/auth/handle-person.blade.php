@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @push('styles')
-    <link rel="stylesheet" href="{{asset('css/components/input.css')}}">
+    <link rel="stylesheet" href="{{asset('css/components/form.css')}}">
     <link rel="stylesheet" href="{{asset('css/pages/handle-person.css')}}">
 @endpush
 
@@ -18,18 +18,18 @@
                 </p>
             </div>
             <div class="d-flex flex-column">
-                <label for="nome">Nome:</label>
+                <label for="name">nome:</label>
                 <input
                     @if(isset($name))
                         value="{{$name}}"
                     @endif
                     type="text"
-                    id="nome"
+                    id="name"
                     class="normal-input"
                     placeholder="Digite seu nome...">
             </div>
             <div class="d-flex flex-column">
-                <label for="email">Email:</label>
+                <label for="email">email:</label>
                 <input
                     @if(isset($name))
                         value="{{$email}}"
