@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\AccessController;
 use App\Http\Controllers\Auth\HandlePersonController;
 use App\Http\Controllers\Auth\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -20,5 +21,9 @@ Route::get('/cadastrar-pessoa', [HandlePersonController::class, 'createPersonPag
 
 Route::post('/editar-pessoa', [HandlePersonController::class, 'editPerson'])->name('auth.edit-person');
 Route::get('/editar-pessoa', [HandlePersonController::class, 'editPersonPage'])->name('auth.edit-person.page');
+
+Route::get('/login', [AccessController::class, 'loginPage'])->name('login.page');
+Route::get('/register', [AccessController::class, 'registerPage'])->name('register.page');
+
 
 Route::get('/', [HomeController::class, 'index'])->name('auth.inicio');
