@@ -11,10 +11,6 @@ class HandlePersonController extends Controller
 {
     public function createPersonPage()
     {
-        if (!Auth::check()) {
-            return redirect()->route('login.page');
-        }
-
         $route = route('auth.create-person');
         $title = 'Criar Pessoa';
         $headline = 'Crie uma pessoa';
@@ -25,10 +21,6 @@ class HandlePersonController extends Controller
 
     public function editPersonPage()
     {
-        if (!Auth::check()) {
-            return redirect()->route('login.page');
-        }
-
         $route = route('auth.edit-person');
         $title = 'Editar Pessoa';
         $headline = 'Editar pessoa';
