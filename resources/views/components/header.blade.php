@@ -1,5 +1,4 @@
 @push('styles')
-    <link rel="stylesheet" href="{{ asset('css/components/input.css') }}">
     <link rel="stylesheet" href="{{ asset('css/components/header.css') }}">
 @endpush
 
