@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
-    <script src="js/app.js" defer></script>
+    <script src="/js/app.js" defer></script>
     @stack('head-scripts')
 
     <link rel="stylesheet" href="{{asset('css/app.css')}}">

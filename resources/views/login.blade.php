@@ -37,7 +37,7 @@
                     type="password"
                     id="password"
                     name="password"
-                    class="normal-input @if($errors->has('password')) error @endif""
+                    class="normal-input @if($errors->has('password')) error @endif"
                     value="{{ old('password') }}"
                     placeholder="Digite sua senha...">
                 @error('password')

@@ -1,0 +1,9 @@
+.giveway-card {
+    padding: 1rem;
+    background-color: var(--slate-color-700);
+    border-radius: 0.5rem;
+}
+
+.giveway-card .name {
+    color: var(--primary-color);
+}

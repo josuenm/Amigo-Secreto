@@ -6,6 +6,7 @@
 
     --slate-color-800: rgb(30 28 57);
     --slate-color-700: rgb(45 43 72);
+    --slate-color-600: rgb(60 58 87);
     --slate-color-500: rgb(100 116 139);
 
     --red-color-500: rgb(239 68 68);
@@ -58,6 +59,22 @@ button:hover:disabled {
 /* FIM: ESTILOS DECLARATIVOS */
 
 /* COMEÇO: COMPONENTES GLOBAIS */
+.spinner {
+    display: none;
+    width: 1rem;
+    height: 1rem;
+    animation: animate-spinner 1s linear infinite;
+    fill: #fff;
+    color: var(--slate-color-800);
+}
+@keyframes animate-spinner {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
 .safe-area {
     max-width: 800px;
     width: 100%;
@@ -67,6 +84,7 @@ button:hover:disabled {
 .btn-with-icon {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 0.5rem;
 }
 .normal-btn {

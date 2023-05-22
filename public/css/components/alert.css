@@ -1,0 +1,52 @@
+.native-alert_container {
+    position: fixed;
+    top: 65px;
+    right: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.native-alert {
+    background-color: var(--slate-color-600);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    animation: fadeInRight 0.5s linear 1;
+}
+.native-alert.out {
+    animation: fadeOutRight 0.5s linear 1;
+}
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@keyframes fadeOutRight {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+}
+
+/* <div class="native-alert_container">
+    @if(session('success'))
+        <div class="native-alert native-alert-success">
+            {{session('success')}}
+        </div>
+    @endif
+    @if(session('error'))
+        <div class="native-alert native-alert-error">
+            {{session('error')}}
+        </div>
+    @endif
+</div> */
