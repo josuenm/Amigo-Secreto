@@ -41,8 +41,19 @@ class HandlePersonController extends Controller
     {
         try {
             $req->validate([
-                'name' => 'required|unique:people,name',
-                'email' => 'required|email|unique:people,email',
+                'name' => [
+                    'required',
+                    Rule::unique('people')->where(function ($query) {
+                        $query->where('user_id', auth()->user()->id);
+                    })
+                ],
+                'email' => [
+                    'required',
+                    'email',
+                    Rule::unique('people')->where(function ($query) {
+                        $query->where('user_id', auth()->user()->id);
+                    })
+                ],
             ], [
                 'name.required' => 'O nome é obrigatório',
                 'name.unique' => 'O nome já existe',
@@ -69,12 +80,16 @@ class HandlePersonController extends Controller
             $req->validate([
                 'name' => [
                     'required',
-                    Rule::unique('people')->ignore($id),
+                    Rule::unique('people')->ignore($id)->where(function ($query) {
+                        $query->where('user_id', auth()->user()->id);
+                    }),
                 ],
                 'email' => [
                     'required',
                     'email',
-                    Rule::unique('people')->ignore($id),
+                    Rule::unique('people')->ignore($id)->where(function ($query) {
+                        $query->where('user_id', auth()->user()->id);
+                    }),
                 ],
             ], [
                 'name.required' => 'O nome é obrigatório',

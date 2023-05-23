@@ -3,30 +3,44 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\Giveaway;
+use App\Models\Giveway;
 use App\Models\Person;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class GivewayController extends Controller
 {
     public function makeGiveway()
     {
         try {
-            $givewaysFound = Giveaway::where('user_id', auth()->user()->id)->get();
+            $givewaysFound = Giveway::where('user_id', auth()->user()->id)->get();
             if ($givewaysFound->isNotEmpty()) {
                 foreach ($givewaysFound as $giveaway) {
                     $giveaway->delete();
                 }
             }
 
-            $people = Person::where('user_id', auth()->user()->id)->get()->toArray();
+            $people = Person::all()->where('user_id', auth()->user()->id)
+                ->values()
+                ->toArray();
 
-            if (count($people) % 2 != 0) {
-                array_pop($people);
+            for ($i = 0; $i <= count($people); $i = $i + 2) {
+                $giveway = new Giveway();
+                $giveway->user_id = auth()->user()->id;
+
+                if (!isset($people[$i + 1])) {
+                    $giveway->person_x_id = $people[$i]['id'];
+                    $giveway->person_y_id = $people[$i]['id'];
+                    $giveway->save();
+                    break;
+                }
+
+                $giveway->person_x_id = $people[$i]['id'];
+                $giveway->person_y_id = $people[$i + 1]['id'];
+                $giveway->save();
             }
-
-            //
 
             return redirect('/sorteio')->with('success', 'Sorteado com sucesso');
         } catch (QueryException $e) {
@@ -36,7 +50,7 @@ class GivewayController extends Controller
 
     public function index()
     {
-        $giveways = Giveaway::where('user_id', auth()->user()->id)
+        $giveways = Giveway::where('user_id', auth()->user()->id)
             ->with('personX', 'personY')
             ->get()
             ->toArray();
